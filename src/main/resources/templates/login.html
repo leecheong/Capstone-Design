@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>로그인</title>
+    <link rel="stylesheet" type="text/css" href="/CSS/login.css"/>
+</head>
+<body>
+<div class="login-container">
+    <h1>환자분 로그인</h1>
+    <label for="Number">휴대폰 번호:</label>
+    <input type="text" id="Number" name="Number"> <br>
+    <label for="memberPassword">비밀번호:</label>
+    <input type="password" id="memberPassword" name="memberPassword"> <br>
+    <button id="test">로그인</button>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    const id = document.getElementById("Number");
+    const pw = document.getElementById("memberPassword");
+
+    document.getElementById("test").addEventListener("click", function() {
+        $.ajax({
+            type: "post",
+            url: "/member/loginChk",
+                  data: {
+                     id: id.value,
+                     pw: pw.value
+                  },
+                  success: function(result) {
+                    alert(result);
+                     if (result == "no id") {
+                        alert("ID가 없습니다.");
+                     }
+                     else if (result == "wrong pw") {
+                        alert("PW가 다릅니다.");
+                     }
+                     else if (result == "success") {
+                        sessionStorage.setItem('user_id', id.value);
+                        window.location.href = "/member/main";
+                     }
+
+                  }
+
+               });
+    });
+</script>
+</html>

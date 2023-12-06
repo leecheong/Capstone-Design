@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>회원가입</title>
+    <link rel="stylesheet" type="text/css" href="/CSS/registe.css"/>
+</head>
+<body>
+<div class="container">
+    <form action="/register/save" method="post">
+        <h2>병원 회원가입</h2>
+        <label for="memberEmail">이메일:</label>
+        <input type="text" name="memberEmail" id="memberEmail" required> <br>
+
+        <label for="memberPassword">비밀번호:</label>
+        <input type="password" name="memberPassword" id="memberPassword" required> <br>
+
+        <label for="memberName">이름:</label>
+        <input type="text" name="memberName" id="memberName" required> <br>
+
+        <label for="Number">핸드폰 번호:</label>
+        <input type="text" name="Number" id="Number" required> <br>
+
+        <label for="classfic">분류:</label>
+        <input type="text" name="classfic" id="classfic" required> <br>
+
+        <input type="submit" value="회원가입">
+    </form>
+</div>
+</body>
+</html>

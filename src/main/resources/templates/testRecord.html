@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>test Record</title>
+</head>
+<body>
+  <div class="layout">
+    <table>
+     <thead>
+     <tr>
+       <th>글번호</th>
+       <th>제목</th>
+     </tr>
+     </thead>
+      <tbody>
+      <tr th:each="RecordEntity: ${list}">
+        <td th:text="${RecordEntity.R_name}">1</td>
+        <td th:text="${RecordEntity.R_date}">제목</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

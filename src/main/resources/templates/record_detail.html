@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>진료기록 상세 페이지</title>
+    <link rel="stylesheet" type="text/css" href="/CSS/detail.css"/>
+</head>
+<body class="bright-theme">
+
+<div class="record-details">
+    <div class="record-header">
+        <h1>진료기록 상세 페이지</h1>
+        <p class="record-number"><strong>진료번호:</strong> <span th:text="${detail?.R_id}"></span></p>
+    </div>
+
+    <div class="patient-info">
+        <p><strong>내원 날짜:</strong> <span th:text="${detail?.R_date}"></span></p>
+        <p><strong>성함:</strong> <span th:text="${detail?.R_name}"></span></p>
+    </div>
+
+    <div class="medical-info">
+        <p><strong>담당의:</strong> <span th:text="${detail?.R_doctor}"></span></p>
+        <p><strong>소견:</strong> <span th:text="${detail?.R_note}"></span></p>
+        <p><strong>처방:</strong> <span th:text="${detail?.R_drug}"></span></p>
+    </div>
+</div>
+
+</body>
+</html>
