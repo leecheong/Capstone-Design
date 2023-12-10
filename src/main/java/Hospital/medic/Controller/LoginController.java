@@ -21,6 +21,8 @@ public class LoginController {
     @Autowired
     private RecordService recordService;
 
+
+    //환자 로그인 및 환자 대쉬보드
     @GetMapping("/")
     public String loginForm(){
         return "login";
@@ -77,7 +79,7 @@ public class LoginController {
         return "main";
     }
 
-    //의사 로그인 페이지
+    //의사 로그인 페이지 대쉬 보드
     @ResponseBody
     @PostMapping("/member/doctorlogin")
     public String getDoctorlogin(@RequestParam Integer id, String pw, HttpSession session) {
@@ -134,6 +136,8 @@ public class LoginController {
 
         return "doctordashbord";
     }
+
+
 
 
 

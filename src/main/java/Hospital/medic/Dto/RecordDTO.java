@@ -12,7 +12,7 @@ import java.util.Date;
 public class RecordDTO {
 
     private Integer R_id;
-    private Date R_date;
+    private String R_date;
     private String R_drug;
     private String R_note;
     private String R_name;

@@ -4,10 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -17,10 +14,11 @@ import java.util.Date;
 @Table(name = "record")
 public class RecordEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer R_id;
 
     @Column
-    private Date R_date;
+    private String R_date;
 
     @Column
     private String R_drug;

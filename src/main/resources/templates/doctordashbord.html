@@ -1,10 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>병원 대쉬보드</title>
+    <!-- Link to the external stylesheet -->
+    <link rel="stylesheet" type="text/css" href="/CSS/main.css"/>
 </head>
 <body>
-<h1>의사 대쉬보드 테스트</h1>
+<header>
+    <h1>TEAM MEDIC</h1>
+    <div id="user-info">
+        <div th:text="${session.membername + '님 환영합니다.'}"></div>
+        <button>로그아웃</button>
+    </div>
+</header>
+
+<main>
+    <div class="layout">
+        <form action="/record/write" method="post">
+        drug: <input name="R_drug" type="text">
+         note: <textarea name="R_note"></textarea>
+            name: <textarea name="R_name"></textarea>
+            doctor: <textarea name="R_doctor"></textarea>
+            date: <input type="date" name="R_date">
+
+        <button>저장</button>
+        <div class="dashboard-box">
+            <h2>진료기록</h2>
+            <ul th:each="recordEntity : ${list}">
+                <!-- 게시글 목록 -->
+                <li>
+                    <span th:text="${recordEntity.R_name}"></span>
+                    <a th:href="@{/record/detail(R_id=${recordEntity.R_id})}" th:text="${recordEntity.R_date}" target="_blank"></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</main>
 </body>
 </html>

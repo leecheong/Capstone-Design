@@ -29,5 +29,13 @@ public class RecordService {
         return recordRepository.findById(R_id).get();
     }
 
+    public void write(RecordEntity record) {
+
+
+        recordRepository.save(record);
+    }
+
+
+
 
 }
