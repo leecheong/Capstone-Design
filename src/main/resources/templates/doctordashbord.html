@@ -3,39 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>병원 대쉬보드</title>
+    <title>의사</title>
     <!-- Link to the external stylesheet -->
-    <link rel="stylesheet" type="text/css" href="/CSS/main.css"/>
+    <link rel="stylesheet" type="text/css" href="/CSS/D_dashbord.css"/>
 </head>
 <body>
 <header>
     <h1>TEAM MEDIC</h1>
     <div id="user-info">
-        <div th:text="${session.membername + '님 환영합니다.'}"></div>
-        <button>로그아웃</button>
+        <div id="welcome-message" th:text="${session.membername + '님 환영합니다.'}"></div>
+        <a href="/member/logout">
+            <button>로그아웃</button>
+        </a>
     </div>
 </header>
 
 <main>
     <div class="layout">
         <form action="/record/write" method="post">
-        drug: <input name="R_drug" type="text">
-         note: <textarea name="R_note"></textarea>
-            name: <textarea name="R_name"></textarea>
-            doctor: <textarea name="R_doctor"></textarea>
-            date: <input type="date" name="R_date">
+            <!-- 이름 -->
+            <label for="R_name">이름:</label>
+            <input id="R_name" name="R_name" type="text">
 
-        <button>저장</button>
-        <div class="dashboard-box">
-            <h2>진료기록</h2>
-            <ul th:each="recordEntity : ${list}">
-                <!-- 게시글 목록 -->
-                <li>
-                    <span th:text="${recordEntity.R_name}"></span>
-                    <a th:href="@{/record/detail(R_id=${recordEntity.R_id})}" th:text="${recordEntity.R_date}" target="_blank"></a>
-                </li>
-            </ul>
-        </div>
+            <!-- 처방약품 -->
+            <label for="R_drug">처방약품:</label>
+            <input id="R_drug" name="R_drug" type="text">
+
+            <!-- 소견 -->
+            <label for="R_note">소견:</label>
+            <textarea id="R_note" name="R_note"></textarea>
+
+            <!-- 담당의 -->
+            <label for="R_doctor">담당의:</label>
+            <textarea id="R_doctor" name="R_doctor"></textarea>
+
+            <!-- 내원날짜 -->
+            <label for="R_date">내원날짜:</label>
+            <input id="R_date" type="date" name="R_date">
+
+            <button>저장</button>
+        </form>
+        <form action="/search" method="post">
+            <div class="dashboard-box">
+                <h2>진료기록</h2>
+                <form action="/search" method="post">
+                    <label for="searchName">이름 검색:</label>
+                    <input id="searchName" name="R_name" type="text">
+                    <button type="submit">검색</button>
+                </form>
+                <ul th:if="${R_name != null and #lists.size(R_name) > 0}">
+                    <li th:each="recordEntity : ${R_name}">
+                        <span th:text="${recordEntity.R_name}"></span>
+                        <a th:href="@{/record/detail(R_id=${recordEntity.R_id})}" th:text="${recordEntity.R_date}" target="_blank"></a>
+                    </li>
+                </ul>
+                <ul th:if="${R_name == null or #lists.size(R_name) == 0}">
+                    <li>검색 결과가 없습니다.</li>
+                </ul>
+            </div>
+        </form>
     </div>
 </main>
 </body>

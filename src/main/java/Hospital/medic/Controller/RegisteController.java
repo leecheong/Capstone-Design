@@ -24,8 +24,6 @@ public class RegisteController {
 
     @PostMapping("/register/save")
     public String save(@ModelAttribute MemberDTO memberDTO) {
-        System.out.println("RegisterController.save");
-        System.out.println("memberDTO =" + memberDTO);
         memberService.save(memberDTO);
         return "login";
     }

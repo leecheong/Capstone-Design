@@ -1,0 +1,92 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+}
+
+#user-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#welcome-message {
+    margin-left: auto; /* 남은 공간을 최대한 확장 */
+}
+
+
+
+main {
+    padding: 20px;
+}
+
+.layout {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+textarea[name="R_note"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 12px; /* 아래 여백 조절 */
+    box-sizing: border-box;
+    resize: vertical; /* 사용자가 크기를 조절할 때 수직으로만 가능하도록 설정 */
+    height: 150px; /* 초기 높이 설정, 필요에 따라 조절하세요 */
+}
+
+.dashboard-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #333;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: bold;
+}
